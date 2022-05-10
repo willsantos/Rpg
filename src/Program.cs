@@ -19,8 +19,34 @@ namespace Rpg.src
       return Name;
     }
 
+    private static string getPlayerClass(string CharacterClass = "")
+    {
+      int options = 0;
 
-      Warrior p1 = new Warrior(Name: Name);
+      while (options == 0)
+      {
+        WriteLine("Com qual Classe você quer jogar?");
+        Write("1- Guerreiro ");
+        WriteLine("2- Mago");
+        WriteLine("Digite o numero da Classe");
+        CharacterClass = ReadLine();
+
+        switch (CharacterClass)
+        {
+          case "1":
+            options = 1;
+            break;
+          case "2":
+            options = 2;
+            break;
+          default:
+            options = 0;
+            break;
+        }
+
+      }
+      return CharacterClass;
+    }
 
       WriteLine(p1.Attack());
     }

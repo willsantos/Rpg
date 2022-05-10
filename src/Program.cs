@@ -1,4 +1,4 @@
-﻿using Rpg.src.Entities;
+using Rpg.src.Entities;
 using static System.Console;
 
 namespace Rpg.src
@@ -8,8 +8,16 @@ namespace Rpg.src
     static void Main(string[] args)
     {
 
+    private static string getPlayerName(string Name)
+    {
+      while (Name == "")
+      {
       WriteLine("Qual o nome da sua personagem?");
-      string Name = ReadLine();
+        Name = ReadLine();
+      }
+
+      return Name;
+    }
 
 
       Warrior p1 = new Warrior(Name: Name);

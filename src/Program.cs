@@ -48,9 +48,28 @@ namespace Rpg.src
       return CharacterClass;
     }
 
-      WriteLine(p1.Attack());
+    private static Hero CreatePlayer(string Name, string CharacterClass)
+    {
+
+      Hero p1;
+      switch (CharacterClass)
+      {
+        case "1":
+          p1 = new Warrior(Name: Name);
+          break;
+
+        case "2":
+          p1 = new Wizard(Name: Name);
+          break;
+
+        default:
+          throw new Exception("Falha interna");
+
     }
 
+      return p1;
+
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-using Rpg.src.Entities;
+﻿using Rpg.src.Entities;
 using static System.Console;
 
 namespace Rpg.src
@@ -16,8 +16,18 @@ namespace Rpg.src
 
       Hero Player = CreatePlayer(Name, CharacterClass);
 
+      WriteLine(Demo());
 
       WriteLine(Player.Attack());
+
+    }
+
+    private static string Demo()
+    {
+      string mensagem = "Apareceu uma geleca assustadora";
+      int Hp = 5;
+      int Attack = 1;
+      return mensagem;
 
     }
 
@@ -25,7 +35,7 @@ namespace Rpg.src
     {
       while (Name == "")
       {
-      WriteLine("Qual o nome da sua personagem?");
+        WriteLine("Qual o nome da sua personagem?");
         Name = ReadLine();
       }
 
@@ -78,7 +88,7 @@ namespace Rpg.src
         default:
           throw new Exception("Falha interna");
 
-    }
+      }
 
       return p1;
 

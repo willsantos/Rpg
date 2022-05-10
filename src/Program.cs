@@ -7,6 +7,19 @@ namespace Rpg.src
   {
     static void Main(string[] args)
     {
+      string Name = "";
+      string CharacterClass = "";
+
+      Name = getPlayerName(Name);
+      CharacterClass = getPlayerClass();
+
+
+      Hero Player = CreatePlayer(Name, CharacterClass);
+
+
+      WriteLine(Player.Attack());
+
+    }
 
     private static string getPlayerName(string Name)
     {

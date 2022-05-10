@@ -1,0 +1,24 @@
+{
+  "name": "rpg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "commitizen-emoji": "^1.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/commitizen-emoji"
+    },
+    "commitizenEmoji": {
+      "conventionalFormat": true
+    }
+  }
+}

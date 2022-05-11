@@ -32,6 +32,19 @@ namespace Rpg.src
 
     }
 
+    private static int rollDice()
+    {
+      Random rnd = new Random();
+      int DiceValue = 0;
+
+      DiceValue = rnd.Next(1, 6);
+
+
+
+      return DiceValue;
+
+    }
+
     private static string getPlayerName(string Name)
     {
       while (Name == "")

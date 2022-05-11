@@ -1,4 +1,4 @@
-﻿using Rpg.src.Entities;
+using Rpg.src.Entities;
 using static System.Console;
 
 namespace Rpg.src
@@ -24,9 +24,10 @@ namespace Rpg.src
 
     private static string Demo()
     {
-      string mensagem = "Apareceu uma geleca assustadora";
-      int Hp = 5;
+      int Hp = 8;
       int Attack = 1;
+      string mensagem = $"Apareceu uma geleca assustadora com {Hp} de vida";
+
       return mensagem;
 
     }

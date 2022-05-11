@@ -1,4 +1,4 @@
-using Rpg.src.Entities;
+﻿using Rpg.src.Entities;
 using static System.Console;
 
 namespace Rpg.src
@@ -16,9 +16,35 @@ namespace Rpg.src
 
       Hero Player = CreatePlayer(Name, CharacterClass);
 
-      WriteLine(Demo());
 
-      WriteLine(Player.Attack());
+      //Isso tem que ser uma classe, soh testando a possibilidade
+
+      int monsterDemoHp = 8;
+
+      WriteLine(Demo());
+      WriteLine("Aperte qualquer tecla para atacar");
+      ReadKey();
+
+      while (monsterDemoHp > 0)
+      {
+        int damage = rollDice();
+        WriteLine($"Rolou {damage} no dado");
+        WriteLine(Player.Attack(damage));
+
+        if (damage != 1)
+        {
+          monsterDemoHp = monsterDemoHp - damage;
+
+        }
+        WriteLine("Aperte qualquer tecla para atacar");
+        ReadKey();
+
+      }
+      WriteLine("Monstro demo foi derrotado");
+
+
+
+
 
     }
 

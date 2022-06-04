@@ -9,12 +9,14 @@ namespace Rpg.src.Entities
   {
 
 
-    public Warrior(string Name, string CharacterClass = "Guerreiro", int Level = 0, string Weapon = "Espada") : base(Name, Level, CharacterClass, Weapon)
+    public Warrior(string name, string characterClass = "Guerreiro", int level = 0, int life = 15, string weapon = "Espada") : base(name, level, characterClass, life, weapon)
     {
-      this.Name = Name;
-      this.Level = Level;
-      this.CharacterClass = CharacterClass;
-      this.Weapon = Weapon;
+      this.Name = name;
+      this.Level = level;
+      this.CharacterClass = characterClass;
+      this.Weapon = weapon;
+      this.Life = life;
+
     }
 
 

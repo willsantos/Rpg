@@ -10,14 +10,17 @@ namespace Rpg.src.Entities
     public string Name { get; set; }
     public int Level { get; set; }
     public string CharacterClass { get; set; }
+
+    public int Life { get; set; }
     public string Weapon { get; set; }
 
-    public Hero(string Name, int Level, string CharacterClass, string Weapon = "suas mãos")
+    public Hero(string name, int level, string characterClass, int life = 15, string weapon = "suas mãos")
     {
-      this.Name = Name;
-      this.Level = Level;
-      this.CharacterClass = CharacterClass;
-      this.Weapon = Weapon;
+      this.Name = name;
+      this.Level = level;
+      this.CharacterClass = characterClass;
+      this.Life = life;
+      this.Weapon = weapon;
     }
 
     public virtual string Attack()
@@ -36,7 +39,9 @@ namespace Rpg.src.Entities
       {
         int damage = Damage + 3;
         return $"{this.Name} atacou com {this.Weapon} e causou  {Damage} de dano, Foi Critico!";
-      }else{
+      }
+      else
+      {
         return $"{this.Name} atacou com {this.Weapon} e errou vergonhosamente";
       }
 

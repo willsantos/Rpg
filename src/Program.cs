@@ -23,22 +23,7 @@ namespace Rpg.src
 
       if (getPlayerAction() == 1)
       {
-        while (monster1.Life > 0)
-        {
-          int damage = rollDice();
-          WriteLine($"Rolou {damage} no dado");
-          WriteLine(Player.Attack(damage));
-
-          if (damage != 1)
-          {
-            monster1.Life = monster1.Life - damage;
-
-          }
-          WriteLine("Aperte qualquer tecla para atacar");
-          ReadKey();
-
-        }
-        WriteLine("Monstro demo foi derrotado");
+        Battle(Player, monster1);
       }
       else
       {
@@ -53,7 +38,25 @@ namespace Rpg.src
 
     }
 
+    private static void Battle(Hero Player, Monster monster)
+    {
+      while (monster.Life > 0)
+      {
+        int damage = rollDice();
+        WriteLine($"Rolou {damage} no dado");
+        WriteLine(Player.Attack(damage));
 
+        if (damage != 1)
+        {
+          monster.Life = monster.Life - damage;
+
+        }
+        WriteLine("Aperte qualquer tecla para atacar");
+        ReadKey();
+
+      }
+      WriteLine("Monstro demo foi derrotado");
+    }
 
     private static int rollDice()
     {

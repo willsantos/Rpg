@@ -27,5 +27,10 @@ namespace Rpg.src.Entities.Monster
       return $"{this.Name} atacou com {this.Weapon}";
     }
 
+    public virtual string Apperad()
+    {
+      return $"O inimigo {this.Name} apareceu";
+    }
+
   }
 }

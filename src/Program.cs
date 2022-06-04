@@ -1,4 +1,4 @@
-using Rpg.src.Entities;
+﻿using Rpg.src.Entities;
 using Rpg.src.Entities.Monster;
 using static System.Console;
 
@@ -45,15 +45,7 @@ namespace Rpg.src
 
     }
 
-    private static string Demo()
-    {
-      int Hp = 8;
-      int Attack = 1;
-      string mensagem = $"Apareceu uma geleca assustadora com {Hp} de vida";
-
-      return mensagem;
     
-    }
 
     private static int rollDice()
     {

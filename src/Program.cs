@@ -38,24 +38,59 @@ namespace Rpg.src
 
     }
 
-    private static void Battle(Hero Player, Monster monster)
+    private static void Battle(Hero Player, Monster Monster)
     {
-      while (monster.Life > 0)
+      while (Monster.Life > 0 && Player.Life > 0)
       {
-        int damage = rollDice();
-        WriteLine($"Rolou {damage} no dado");
-        WriteLine(Player.Attack(damage));
+        int playerDamage = rollDice();
+        WriteLine($"Rolou {playerDamage} no dado");
+        WriteLine(Player.Attack(playerDamage));
 
-        if (damage != 1)
+        if (playerDamage != 1)
         {
-          monster.Life = monster.Life - damage;
+          Monster.Life = Monster.Life - playerDamage;
 
         }
+        Thread.Sleep(2000);
+        WriteLine("<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
+
+        WriteLine($"{Monster.Name} se prepara para atacar");
+        Thread.Sleep(3000);
+
+        int monsterDamage = rollDice();
+        WriteLine($"Rolou {monsterDamage} no dado");
+        WriteLine(Monster.Attack(monsterDamage));
+
+        if (monsterDamage != 1)
+        {
+          Player.Life = Player.Life - monsterDamage;
+        }
+        Thread.Sleep(1000);
+        WriteLine($@"
+            _______________________________________________________
+            /\                                                      \
+            \_|                                                     |
+              | {Player.Name} possui {Player.Life} pontos de vida 
+              | {Monster.Name} possui {Monster.Life} pontos de vida
+              |  ___________________________________________________|_
+              \_/____________________________________________________/
+        ");
+
+
         WriteLine("Aperte qualquer tecla para atacar");
         ReadKey();
+        WriteLine("<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
 
       }
-      WriteLine("Monstro demo foi derrotado");
+
+      if (Monster.Life <= 0)
+      {
+        WriteLine($"{Monster.Name} foi derrotado");
+      }
+      else
+      {
+        WriteLine("Você foi derrotado");
+      }
     }
 
     private static int rollDice()
@@ -148,11 +183,11 @@ namespace Rpg.src
       switch (CharacterClass)
       {
         case "1":
-          p1 = new Warrior(Name: Name);
+          p1 = new Warrior(name: Name);
           break;
 
         case "2":
-          p1 = new Wizard(Name: Name);
+          p1 = new Wizard(name: Name);
           break;
 
         default:

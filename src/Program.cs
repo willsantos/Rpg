@@ -1,4 +1,4 @@
-using Rpg.src.Entities;
+﻿using Rpg.src.Entities;
 using Rpg.src.Entities.Monster;
 using static System.Console;
 
@@ -18,10 +18,11 @@ namespace Rpg.src
 
       Monster monster1 = new MonsterSlime("Geleca", 2, 2);
 
-      System.Console.WriteLine(monster1.Apperad());
-      WriteLine("Aperte qualquer tecla para atacar");
-      ReadKey();
+      WriteLine(monster1.Apperad());
 
+
+      if (getPlayerAction() == 1)
+      {
         while (monster1.Life > 0)
         {
           int damage = rollDice();
@@ -38,6 +39,13 @@ namespace Rpg.src
 
         }
         WriteLine("Monstro demo foi derrotado");
+      }
+      else
+      {
+        WriteLine("Fugiu desesperadamente");
+      }
+
+
 
 
 

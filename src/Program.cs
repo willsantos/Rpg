@@ -49,6 +49,12 @@ namespace Rpg.src
         if (playerDamage != 1)
         {
           Monster.Life = Monster.Life - playerDamage;
+          if (Monster.Life <= 0)
+          {
+            Thread.Sleep(3000);
+            WriteLine($"{Monster.Name} foi derrotado!");
+            break;
+          }
 
         }
         Thread.Sleep(2000);
@@ -64,6 +70,12 @@ namespace Rpg.src
         if (monsterDamage != 1)
         {
           Player.Life = Player.Life - monsterDamage;
+          if (Player.Life <= 0)
+          {
+            Thread.Sleep(3000);
+            WriteLine("Você foi derrotado...");
+            break;
+          }
         }
         Thread.Sleep(1000);
         WriteLine($@"
@@ -77,20 +89,13 @@ namespace Rpg.src
         ");
 
 
-        WriteLine("Aperte qualquer tecla para atacar");
+        WriteLine("Aperte qualquer tecla para continuar");
         ReadKey();
         WriteLine("<*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*><*>");
 
       }
 
-      if (Monster.Life <= 0)
-      {
-        WriteLine($"{Monster.Name} foi derrotado");
-      }
-      else
-      {
-        WriteLine("Você foi derrotado");
-      }
+
     }
 
     private static int rollDice()

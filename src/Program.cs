@@ -1,4 +1,4 @@
-﻿using Rpg.src.Entities;
+using Rpg.src.Entities;
 using Rpg.src.Entities.Monster;
 using static System.Console;
 
@@ -22,22 +22,22 @@ namespace Rpg.src
       WriteLine("Aperte qualquer tecla para atacar");
       ReadKey();
 
-      while (monster1.Life > 0)
-      {
-        int damage = rollDice();
-        WriteLine($"Rolou {damage} no dado");
-        WriteLine(Player.Attack(damage));
-
-        if (damage != 1)
+        while (monster1.Life > 0)
         {
-          monster1.Life = monster1.Life - damage;
+          int damage = rollDice();
+          WriteLine($"Rolou {damage} no dado");
+          WriteLine(Player.Attack(damage));
+
+          if (damage != 1)
+          {
+            monster1.Life = monster1.Life - damage;
+
+          }
+          WriteLine("Aperte qualquer tecla para atacar");
+          ReadKey();
 
         }
-        WriteLine("Aperte qualquer tecla para atacar");
-        ReadKey();
-
-      }
-      WriteLine("Monstro demo foi derrotado");
+        WriteLine("Monstro demo foi derrotado");
 
 
 
@@ -45,7 +45,7 @@ namespace Rpg.src
 
     }
 
-    
+
 
     private static int rollDice()
     {
@@ -70,6 +70,7 @@ namespace Rpg.src
 
       return Name;
     }
+
 
     private static string getPlayerClass(string CharacterClass = "")
     {
@@ -100,6 +101,35 @@ namespace Rpg.src
       return CharacterClass;
     }
 
+    private static int getPlayerAction()
+    {
+      int options = 0;
+      string option = "";
+
+      while (options == 0)
+      {
+        WriteLine("O que você deseja fazer?");
+        Write("1 - Atacar ");
+        WriteLine("2 - Correr");
+        WriteLine("Digite o numero da Ação");
+        option = ReadLine();
+
+        switch (option)
+        {
+          case "1":
+            options = 1;
+            break;
+          case "2":
+            options = 2;
+            break;
+          default:
+            options = 0;
+            break;
+        }
+      }
+
+      return int.Parse(option);
+    }
     private static Hero CreatePlayer(string Name, string CharacterClass)
     {
 

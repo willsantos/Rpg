@@ -1,4 +1,5 @@
-﻿using Rpg.src.Entities;
+using Rpg.src.Entities;
+using Rpg.src.Entities.Monster;
 using static System.Console;
 
 namespace Rpg.src
@@ -13,19 +14,15 @@ namespace Rpg.src
       Name = getPlayerName(Name);
       CharacterClass = getPlayerClass();
 
-
       Hero Player = CreatePlayer(Name, CharacterClass);
 
+      Monster monster1 = new MonsterSlime("Geleca", 2, 2);
 
-      //Isso tem que ser uma classe, soh testando a possibilidade
-
-      int monsterDemoHp = 8;
-
-      WriteLine(Demo());
+      System.Console.WriteLine(monster1.Apperad());
       WriteLine("Aperte qualquer tecla para atacar");
       ReadKey();
 
-      while (monsterDemoHp > 0)
+      while (monster1.Life > 0)
       {
         int damage = rollDice();
         WriteLine($"Rolou {damage} no dado");
@@ -33,7 +30,7 @@ namespace Rpg.src
 
         if (damage != 1)
         {
-          monsterDemoHp = monsterDemoHp - damage;
+          monster1.Life = monster1.Life - damage;
 
         }
         WriteLine("Aperte qualquer tecla para atacar");
@@ -55,7 +52,7 @@ namespace Rpg.src
       string mensagem = $"Apareceu uma geleca assustadora com {Hp} de vida";
 
       return mensagem;
-
+    
     }
 
     private static int rollDice()
